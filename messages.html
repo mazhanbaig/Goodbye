@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages for Madam</title>
+    <link href="/output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffebf0, #ffd6e8);
+            font-family: 'Great Vibes', cursive;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            color: #4b1c32;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+        }
+
+        .petal {
+            position: fixed;
+            top: -50px;
+            font-size: 2rem;
+            animation: fall 4s linear forwards;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative">
+
+    <!-- Navbar -->
+    <nav class="mt-4 font-sans flex gap-3 flex-wrap justify-center z-10">
+        <a href="index.html"
+            class="px-6 py-2 bg-pink-600 text-white rounded-full shadow hover:bg-pink-700 transition">Home</a>
+        <a href="messages.html"
+            class="px-6 py-2 bg-pink-600 text-white rounded-full shadow hover:bg-pink-700 transition">Messages</a>
+        <a href="letter.html"
+            class="px-6 py-2 bg-pink-600 text-white rounded-full shadow hover:bg-pink-700 transition">Letter</a>
+    </nav>
+
+
+    <!-- Heading -->
+    <h1 class="text-5xl md:text-6xl text-white drop-shadow-lg mt-10">Messages for Madam <i
+            class="fa-solid fa-comments text-pink-400"></i></h1>
+
+    <!-- Message Cards -->
+    <div class="space-y-6 max-w-3xl mt-10 z-10 mb-10">
+        <div class="message-box text-gray-500 text-2xl md:text-3xl">
+            "You made our last school years special. We’ll never forget your care and support."
+        </div>
+        <div class="message-box text-gray-500 text-2xl md:text-3xl">
+            "We will miss your kind voice and the light you brought every day."
+        </div>
+        <div class="message-box text-gray-500 text-2xl md:text-3xl">
+            "You taught us more than lessons — you taught us love, respect, and grace."
+        </div>
+    </div>
+
+    <!-- Flower Petal Animation -->
+    <script>
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.innerHTML = '🌸';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.fontSize = `${Math.random() * 10 + 14}px`;
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 4000);
+        }
+
+        setInterval(() => {
+            for (let i = 0; i < 2; i++) createPetal();
+        }, 300);
+    </script>
+
+</body>
+
+</html>

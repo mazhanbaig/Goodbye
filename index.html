@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tribute to Madam</title>
+    <link href="/output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffebf0, #ffd6e8);
+            overflow-x: hidden;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .petal {
+            position: fixed;
+            top: -50px;
+            font-size: 2rem;
+            animation: fall 4s linear forwards;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="relative min-h-screen flex flex-col items-center justify-center">
+    <!-- Navbar -->
+    <nav class="mt-4 font-sans flex gap-3 flex-wrap justify-center z-10">
+        <a href="index.html"
+            class="px-6 py-2 bg-pink-600 text-white rounded-full shadow hover:bg-pink-700 transition">Home</a>
+        <a href="messages.html"
+            class="px-6 py-2 bg-pink-600 text-white rounded-full shadow hover:bg-pink-700 transition">Messages</a>
+        <a href="letter.html"
+            class="px-6 py-2 bg-pink-600 text-white rounded-full shadow hover:bg-pink-700 transition">Letter</a>
+    </nav>
+
+
+    <!-- Tribute Box -->
+    <main class="z-10 mt-12 max-w-3xl  text-center ">
+        <h1 class="text-5xl md:text-6xl mb-6 text-white drop-shadow-lg">To Our Dearest Madam 🌸</h1>
+        <p class="text-2xl md:text-3xl text-gray-500 leading-relaxed drop-shadow-sm">
+            You may have left the school, but never
+            our
+            hearts. Your kindness, your smile, and your endless support will always shine in our memories like the stars
+            above. This is our little tribute to say <br> <span class="text-pink-400">You are unforgettable.</span>
+        </p>
+    </main>
+    <footer class="mt-10 py-4 text-gray-500 text-xl  w-full text-center">
+        <p>Made By — Azhan</p>
+    </footer>
+
+    <!-- Flower Petal Animation -->
+    <script>
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.innerHTML = '🌸';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.fontSize = `${Math.random() * 10 + 14}px`;
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 4000);
+        }
+
+        setInterval(() => {
+            for (let i = 0; i < 2; i++) createPetal();
+        }, 300);
+    </script>
+</body>
+
+</html>
